@@ -7,6 +7,8 @@ An intelligent HR assistant chatbot that answers resource allocation queries usi
 - "Suggest people for a React Native project"
 - "Find developers who know both AWS and Docker"
 
+**Note:** This project is intended for **local setup and demonstration only**. No public cloud deployment is provided. All instructions below will help you run the app on your own machine.
+
 ## Features
 - RAG pipeline: semantic search + LLM or template-based response
 - Vector similarity search (FAISS + sentence-transformers)
@@ -14,7 +16,7 @@ An intelligent HR assistant chatbot that answers resource allocation queries usi
 - Streamlit frontend chat interface
 - Realistic sample employee dataset
 - Modular, industry-standard codebase
-- Ready for cloud or local deployment
+- Ready for local deployment
 
 ## Architecture
 - **Backend:** FastAPI, RAG pipeline (retrieval, augmentation, generation)
@@ -27,7 +29,7 @@ An intelligent HR assistant chatbot that answers resource allocation queries usi
 User ──▶ Streamlit UI ──▶ FastAPI /chat ──▶ RAG Pipeline ──▶ Employee Data
 ```
 
-## Setup & Installation
+## Setup & Installation (Local Only)
 
 ### Prerequisites
 - Python 3.8+
@@ -78,7 +80,7 @@ streamlit run app.py
 - **Streamlit:** Fast prototyping, easy deployment
 - **sentence-transformers + FAISS:** Free, local, fast semantic search
 - **OpenAI (optional):** Best-in-class LLM, fallback to template for privacy/cost
-- **Deployment:** Docker-ready, cloud-friendly
+- **Deployment:** Local only for this project
 
 ## Future Improvements
 - User authentication (HR login)
@@ -88,16 +90,31 @@ streamlit run app.py
 - More advanced LLM (Ollama, local models)
 - Analytics dashboard
 
-## Demo
-  ![Screenshot](demo_screenshot.png)
+## Demo (Local Only)
+  Screenshot](demo_screenshot.png)
+- **This project is intended for local demonstration only.**
+- To see the app in action, follow the setup instructions above and view the included screenshots.
+- If a live demo is required, please contact the author to arrange a screen share or provide a screen recording.
 
+## Restarting the Application
 
-## Deployment
+### Restart Backend (FastAPI)
+1. Open a terminal and navigate to the backend directory:
+   ```bash
+   cd backend
+   source venv/bin/activate  # if not already activated
+   uvicorn main:app --reload
+   ```
+   - Stop the server anytime with `CTRL+C` and re-run the above command to restart.
 
-### Streamlit Cloud (Frontend)
-- Push `frontend/` to GitHub
-- Go to [Streamlit Cloud](https://streamlit.io/cloud), connect repo, set `API_URL` secret to backend URL
+### Restart Frontend (Streamlit)
+1. Open a new terminal and navigate to the frontend directory:
+   ```bash
+   cd frontend
+   source venv/bin/activate  # if not already activated
+   streamlit run app.py
+   ```
+   - Stop the app anytime with `CTRL+C` and re-run the above command to restart.
 
-### Render.com (Backend)
-- Push `backend/` to GitHub
-- Create new FastAPI service on [Render.com](https://render.com/)
+---
+For questions or support, contact the author. 
