@@ -89,8 +89,8 @@ streamlit run app.py
 - Analytics dashboard
 
 ## Demo
-- ![Screenshot](demo_screenshot.png)
-- (Add Streamlit Cloud or Render.com link here after deployment)
+  ![Screenshot](demo_screenshot.png)
+
 
 ## Deployment
 
@@ -101,12 +101,3 @@ streamlit run app.py
 ### Render.com (Backend)
 - Push `backend/` to GitHub
 - Create new FastAPI service on [Render.com](https://render.com/)
-- Set environment variables as needed
-
-### Local Docker Compose (Optional)
-- Add Dockerfiles and docker-compose.yml for full-stack local deployment
-
-
-
----
-For questions or support, contact the author. 
