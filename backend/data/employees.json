@@ -1,0 +1,404 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Amit Sharma",
+      "skills": ["Python", "React", "AWS"],
+      "experience_years": 5,
+      "projects": ["E-commerce Platform", "Healthcare Dashboard"],
+      "availability": "available"
+    },
+    {
+      "id": 2,
+      "name": "Rahul Verma",
+      "skills": ["Java", "Spring", "Docker"],
+      "experience_years": 4,
+      "projects": ["Banking App", "Inventory System"],
+      "availability": "busy"
+    },
+    {
+      "id": 3,
+      "name": "Sneha Iyer",
+      "skills": ["Machine Learning", "TensorFlow", "PyTorch"],
+      "experience_years": 6,
+      "projects": ["Medical Diagnosis Platform", "AI Research"],
+      "availability": "available"
+    },
+    {
+      "id": 4,
+      "name": "Vikram Desai",
+      "skills": ["Machine Learning", "scikit-learn", "pandas"],
+      "experience_years": 4,
+      "projects": ["Patient Risk Prediction System", "EHR Integration"],
+      "availability": "available"
+    },
+    {
+      "id": 5,
+      "name": "Priya Singh",
+      "skills": ["React Native", "TypeScript", "Figma"],
+      "experience_years": 3,
+      "projects": ["Mobile Banking App", "Travel Planner"],
+      "availability": "available"
+    },
+    {
+      "id": 6,
+      "name": "Suresh Nair",
+      "skills": ["AWS", "DevOps", "Docker"],
+      "experience_years": 7,
+      "projects": ["Cloud Migration", "CI/CD Automation"],
+      "availability": "busy"
+    },
+    {
+      "id": 7,
+      "name": "Meera Joshi",
+      "skills": ["Python", "Django", "PostgreSQL"],
+      "experience_years": 5,
+      "projects": ["Healthcare Dashboard", "E-commerce Platform"],
+      "availability": "available"
+    },
+    {
+      "id": 8,
+      "name": "Arjun Reddy",
+      "skills": ["Node.js", "MongoDB", "AWS"],
+      "experience_years": 4,
+      "projects": ["IoT Platform", "Retail Analytics"],
+      "availability": "available"
+    },
+    {
+      "id": 9,
+      "name": "Kavya Menon",
+      "skills": ["Data Science", "R", "Python"],
+      "experience_years": 5,
+      "projects": ["Customer Segmentation", "Healthcare Analytics"],
+      "availability": "busy"
+    },
+    {
+      "id": 10,
+      "name": "Rohit Sinha",
+      "skills": ["JavaScript", "Vue.js", "Firebase"],
+      "experience_years": 3,
+      "projects": ["Real Estate Portal", "Chatbot"],
+      "availability": "available"
+    },
+    {
+      "id": 11,
+      "name": "Anjali Gupta",
+      "skills": ["UX Design", "Figma", "HTML/CSS"],
+      "experience_years": 6,
+      "projects": ["E-commerce Redesign", "Healthcare App"],
+      "availability": "available"
+    },
+    {
+      "id": 12,
+      "name": "Manoj Pillai",
+      "skills": ["C#", ".NET", "Azure"],
+      "experience_years": 8,
+      "projects": ["Insurance Platform", "HR System"],
+      "availability": "busy"
+    },
+    {
+      "id": 13,
+      "name": "Rakesh Patil",
+      "skills": ["Go", "Kubernetes", "AWS"],
+      "experience_years": 5,
+      "projects": ["Microservices Platform", "DevOps Automation"],
+      "availability": "available"
+    },
+    {
+      "id": 14,
+      "name": "Pooja Kulkarni",
+      "skills": ["Python", "NLP", "HuggingFace"],
+      "experience_years": 4,
+      "projects": ["Chatbot", "Text Analytics"],
+      "availability": "available"
+    },
+    {
+      "id": 15,
+      "name": "Nikhil Rao",
+      "skills": ["React", "Node.js", "Docker"],
+      "experience_years": 3,
+      "projects": ["Healthcare Dashboard", "E-commerce Platform"],
+      "availability": "busy"
+    },
+    {
+      "id": 16,
+      "name": "Ravi Kumar",
+      "skills": ["Java", "Spring Boot", "Angular"],
+      "experience_years": 2,
+      "projects": ["Retail POS", "Inventory Tracker"],
+      "availability": "available"
+    },
+    {
+      "id": 17,
+      "name": "Neha Agarwal",
+      "skills": ["JavaScript", "React", "Redux"],
+      "experience_years": 1,
+      "projects": ["Startup Landing Page"],
+      "availability": "available"
+    },
+    {
+      "id": 18,
+      "name": "Aakash Mishra",
+      "skills": ["Java", "Spring", "React"],
+      "experience_years": 2,
+      "projects": ["Banking Portal", "Loan Management"],
+      "availability": "busy"
+    },
+    {
+      "id": 19,
+      "name": "Divya Pandey",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "experience_years": 1,
+      "projects": ["Portfolio Website"],
+      "availability": "available"
+    },
+    {
+      "id": 20,
+      "name": "Siddharth Jain",
+      "skills": ["Java", "Spring Boot", "Vue.js"],
+      "experience_years": 2,
+      "projects": ["E-learning Platform"],
+      "availability": "available"
+    },
+    {
+      "id": 21,
+      "name": "Saanvi Patel",
+      "skills": ["Python", "Flask", "SQL"],
+      "experience_years": 1,
+      "projects": ["Expense Tracker"],
+      "availability": "available"
+    },
+    {
+      "id": 22,
+      "name": "Karan Malhotra",
+      "skills": ["Java", "React", "Node.js"],
+      "experience_years": 2,
+      "projects": ["Job Portal", "HR Dashboard"],
+      "availability": "busy"
+    },
+    {
+      "id": 23,
+      "name": "Maya Joshi",
+      "skills": ["Java", "Angular", "MySQL"],
+      "experience_years": 1,
+      "projects": ["Inventory App"],
+      "availability": "available"
+    },
+    {
+      "id": 24,
+      "name": "Gaurav Saxena",
+      "skills": ["Java", "Spring", "React", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare CRM", "Insurance Claims"],
+      "availability": "available"
+    },
+    {
+      "id": 25,
+      "name": "Ishita Kapoor",
+      "skills": ["JavaScript", "Vue.js", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Event Management App"],
+      "availability": "busy"
+    },
+    {
+      "id": 26,
+      "name": "Abhishek Joshi",
+      "skills": ["Java", "Spring Boot", "React"],
+      "experience_years": 2,
+      "projects": ["E-commerce Backend"],
+      "availability": "available"
+    },
+    {
+      "id": 27,
+      "name": "Shreya Nair",
+      "skills": ["Java", "Angular", "MongoDB"],
+      "experience_years": 1,
+      "projects": ["Online Learning Portal"],
+      "availability": "available"
+    },
+    {
+      "id": 28,
+      "name": "Nitin Bansal",
+      "skills": ["Java", "Spring", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud HR System"],
+      "availability": "busy"
+    },
+    {
+      "id": 29,
+      "name": "Riya Mehta",
+      "skills": ["JavaScript", "React", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Social Media App"],
+      "availability": "available"
+    },
+    {
+      "id": 30,
+      "name": "Aditya Choudhary",
+      "skills": ["Java", "Spring Boot", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare API"],
+      "availability": "available"
+    },
+    {
+      "id": 31,
+      "name": "Tanvi Sharma",
+      "skills": ["Java", "React", "PostgreSQL"],
+      "experience_years": 1,
+      "projects": ["Recruitment Platform"],
+      "availability": "available"
+    },
+    {
+      "id": 32,
+      "name": "Sahil Gupta",
+      "skills": ["Java", "Spring", "Angular", "Docker"],
+      "experience_years": 2,
+      "projects": ["Insurance Quoting Tool"],
+      "availability": "busy"
+    },
+    {
+      "id": 33,
+      "name": "Aarav Rathi",
+      "skills": ["JavaScript", "React", "Redux"],
+      "experience_years": 1,
+      "projects": ["E-commerce Frontend"],
+      "availability": "available"
+    },
+    {
+      "id": 34,
+      "name": "Rachna Sinha",
+      "skills": ["Java", "Spring Boot", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud Payroll System"],
+      "availability": "available"
+    },
+    {
+      "id": 35,
+      "name": "Vivek Tiwari",
+      "skills": ["Java", "Angular", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Employee Directory"],
+      "availability": "available"
+    },
+    {
+      "id": 36,
+      "name": "Kritika Sharma",
+      "skills": ["Java", "Spring", "React", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare Scheduling"],
+      "availability": "busy"
+    },
+    {
+      "id": 37,
+      "name": "Rohan Kapoor",
+      "skills": ["JavaScript", "Vue.js", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Fitness Tracker"],
+      "availability": "available"
+    },
+    {
+      "id": 38,
+      "name": "Siddhi Deshmukh",
+      "skills": ["Java", "Spring Boot", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud Inventory"],
+      "availability": "available"
+    },
+    {
+      "id": 39,
+      "name": "Aditi Joshi",
+      "skills": ["Java", "Angular", "MongoDB"],
+      "experience_years": 1,
+      "projects": ["Online Booking System"],
+      "availability": "available"
+    },
+    {
+      "id": 40,
+      "name": "Yash Agarwal",
+      "skills": ["Java", "Spring", "React", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare Analytics"],
+      "availability": "busy"
+    },
+    {
+      "id": 41,
+      "name": "Simran Kaur",
+      "skills": ["JavaScript", "React", "Redux"],
+      "experience_years": 1,
+      "projects": ["E-commerce Cart"],
+      "availability": "available"
+    },
+    {
+      "id": 42,
+      "name": "Devansh Jain",
+      "skills": ["Java", "Spring Boot", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud CRM"],
+      "availability": "available"
+    },
+    {
+      "id": 43,
+      "name": "Aishwarya Rao",
+      "skills": ["Java", "Angular", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Employee Feedback"],
+      "availability": "available"
+    },
+    {
+      "id": 44,
+      "name": "Harsh Vardhan",
+      "skills": ["Java", "Spring", "React", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare Billing"],
+      "availability": "busy"
+    },
+    {
+      "id": 45,
+      "name": "Isha Sharma",
+      "skills": ["JavaScript", "Vue.js", "Node.js"],
+      "experience_years": 1,
+      "projects": ["Event Scheduler"],
+      "availability": "available"
+    },
+    {
+      "id": 46,
+      "name": "Ankit Sahu",
+      "skills": ["Java", "Spring Boot", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud HR Analytics"],
+      "availability": "available"
+    },
+    {
+      "id": 47,
+      "name": "Ritika Bansal",
+      "skills": ["Java", "Angular", "MongoDB"],
+      "experience_years": 1,
+      "projects": ["Online Survey Tool"],
+      "availability": "available"
+    },
+    {
+      "id": 48,
+      "name": "Sanjay Yadav",
+      "skills": ["Java", "Spring", "React", "Docker"],
+      "experience_years": 2,
+      "projects": ["Healthcare Data Lake"],
+      "availability": "busy"
+    },
+    {
+      "id": 49,
+      "name": "Nisha Reddy",
+      "skills": ["JavaScript", "React", "Redux"],
+      "experience_years": 1,
+      "projects": ["E-commerce Wishlist"],
+      "availability": "available"
+    },
+    {
+      "id": 50,
+      "name": "Kunal Joshi",
+      "skills": ["Java", "Spring Boot", "React", "AWS"],
+      "experience_years": 2,
+      "projects": ["Cloud Payroll"],
+      "availability": "available"
+    }
+  ]
+}
