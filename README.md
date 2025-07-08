@@ -83,7 +83,7 @@ streamlit run app.py
   - Debugging and error resolution
   - Architecture planning and best practices
   - Writing and formatting documentation
-- **AI vs Hand-written Code:** ~80% AI-assisted, 20% hand-written (data, edge cases, integration)
+- **AI vs Hand-written Code:** ~60% AI-assisted, 40% hand-written (data, edge cases, integration)
 - **Interesting AI Solutions:**
   - Modular RAG pipeline with fallback to template
   - Automatic switch to template if LLM quota exceeded
