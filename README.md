@@ -96,25 +96,6 @@ streamlit run app.py
 - To see the app in action, follow the setup instructions above and view the included screenshots.
 - If a live demo is required, please contact the author to arrange a screen share or provide a screen recording.
 
-## Restarting the Application
-
-### Restart Backend (FastAPI)
-1. Open a terminal and navigate to the backend directory:
-   ```bash
-   cd backend
-   source venv/bin/activate  # if not already activated
-   uvicorn main:app --reload
-   ```
-   - Stop the server anytime with `CTRL+C` and re-run the above command to restart.
-
-### Restart Frontend (Streamlit)
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   source venv/bin/activate  # if not already activated
-   streamlit run app.py
-   ```
-   - Stop the app anytime with `CTRL+C` and re-run the above command to restart.
 
 ---
 For questions or support, contact the author. 
