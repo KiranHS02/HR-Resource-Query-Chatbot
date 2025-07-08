@@ -91,7 +91,7 @@ streamlit run app.py
 - Analytics dashboard
 
 ## Demo (Local Only)
-  [Screenshot](demo_screenshot.png)
+- ![Screenshot](demo_screenshot.png)
 - **This project is intended for local demonstration only.**
 - To see the app in action, follow the setup instructions above and view the included screenshots.
 - If a live demo is required, please contact the author to arrange a screen share or provide a screen recording.
