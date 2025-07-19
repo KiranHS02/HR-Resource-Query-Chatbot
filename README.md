@@ -55,7 +55,7 @@ streamlit run app.py
 ```
 
 ### Configuration
-- To use OpenAI, set `OPENAI_API_KEY` in your environment before starting the backend.
+- To use GroqAPI, set `GROQ_API_KEY` in your .env file in backend folder before starting the backend.
 - The frontend will connect to the backend at `http://localhost:8000` by default.
 
 ## API Documentation
@@ -117,10 +117,6 @@ streamlit run app.py
 - Analytics dashboard for HR insights
 
 ## Demo
-  ![Screenshot](demo_screenshot.png)
-- **This project is intended for local demonstration only.**
-- To see the app in action, follow the setup instructions above and view the included screenshots.
-- For a live demo, contact the author to arrange a screen share or request a screen recording.
+  ![Screenshot](HomePage.png)
+  ![Screenshot](Question_Answer.png)
 
----
-For questions or support, contact the author. 
