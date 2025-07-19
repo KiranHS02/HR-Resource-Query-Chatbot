@@ -98,12 +98,11 @@ streamlit run app.py
   - Ensuring clear local setup for reviewers
 
 ## Technical Decisions
-- **OpenAI vs Open-source Models:**
-  - OpenAI GPT used for best-in-class LLM responses (optional, local fallback always available)
+- **Used Open-source Models:**
+  - Open source models are cost effective and free to use 
   - Chose sentence-transformers + FAISS for free, fast, local semantic search
 - **Local LLM vs Cloud API:**
-  - Local setup prioritized for privacy and ease of review
-  - Cloud LLM (OpenAI) is optional and only used if API key is provided
+  - Cloud Groq API used
 - **Performance vs Cost vs Privacy:**
   - Default is local, no-cost, privacy-friendly
   - LLM is opt-in for richer responses
