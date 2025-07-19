@@ -1,39 +1,86 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="HR Resource Query Chatbot", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="HR Resource Query Chatbot", page_icon="🤖", layout="wide")
 st.title("🤖 HR Resource Query Chatbot")
 
-API_URL = st.secrets["API_URL"] if "API_URL" in st.secrets else "http://localhost:8000/chat"
+# API URL
+API_URL = "http://localhost:8000/chat"
 
+# Initialize chat history
 if "messages" not in st.session_state:
-    st.session_state["messages"] = []
+    st.session_state.messages = []
 
-st.markdown("""
-Type your HR resource query below. Example queries:
-- Find Python developers with 3+ years experience
-- Who has worked on healthcare projects?
-- Suggest people for a React Native project
-- Find developers who know both AWS and Docker
-""")
+# Display welcome message if no chat history
+if not st.session_state.messages:
+    st.markdown("""
+    👋 **Welcome!** I'm your HR Resource Query Assistant. I can help you find the right people for your projects.
+    
+    **Example queries:**
+    - Find Python developers with 3+ years experience
+    - Who has worked on healthcare projects?
+    - Suggest people for a React Native project
+    - Find developers who know both AWS and Docker
+    """)
 
-with st.form("chat_form", clear_on_submit=True):
-    user_input = st.text_input("Your query:", "")
-    submitted = st.form_submit_button("Send")
+# Display chat messages
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-if submitted and user_input:
-    st.session_state["messages"].append({"role": "user", "content": user_input})
-    with st.spinner("Thinking..."):
-        try:
-            response = requests.post(API_URL, json={"query": user_input}, timeout=30)
-            response.raise_for_status()
-            bot_reply = response.json()["response"]
-        except Exception as e:
-            bot_reply = f"Error: {e}"
-    st.session_state["messages"].append({"role": "bot", "content": bot_reply})
+# Chat input at the bottom
+if prompt := st.chat_input("Type your HR resource query here..."):
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    # Display user message
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    
+    # Display assistant response
+    with st.chat_message("assistant"):
+        message_placeholder = st.empty()
+        with st.spinner("Searching for resources..."):
+            try:
+                response = requests.post(API_URL, json={"query": prompt}, timeout=30)
+                response.raise_for_status()
+                bot_reply = response.json()["response"]
+            except Exception as e:
+                bot_reply = f"❌ **Error:** Unable to process your request. Please try again later.\n\nError details: {str(e)}"
+        
+        message_placeholder.markdown(bot_reply)
+    
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": bot_reply})
 
-for msg in st.session_state["messages"]:
-    if msg["role"] == "user":
-        st.markdown(f"<div style='text-align:right'><b>You:</b> {msg['content']}</div>", unsafe_allow_html=True)
-    else:
-        st.markdown(f"<div style='text-align:left'><b>Bot:</b> {msg['content']}</div>", unsafe_allow_html=True) 
+# Sidebar with additional options
+with st.sidebar:
+    st.header("💬 Chat Options")
+    
+    # Clear chat button
+    if st.button("🗑️ Clear Chat History"):
+        st.session_state.messages = []
+        st.rerun()
+    
+    st.markdown("---")
+    st.markdown("**💡 Tips:**")
+    st.markdown("• Be specific about skills and experience")
+    st.markdown("• Mention project types or industries")
+    st.markdown("• Ask about availability or specific technologies")
+    
+    st.markdown("---")
+    st.markdown("**🔧 API Status:**")
+    try:
+        # Try to connect to the main API endpoint
+        health_check = requests.get(API_URL.replace("/chat", ""), timeout=5)
+        if health_check.status_code == 404:
+            # 404 is expected for root endpoint, means server is running
+            st.success("✅ Backend Connected")
+        elif health_check.status_code == 200:
+            st.success("✅ Backend Connected")
+        else:
+            st.error(f"❌ Backend Error (Status: {health_check.status_code})")
+    except requests.exceptions.ConnectionError:
+        st.error("❌ Backend Unavailable - Server not running")
+    except Exception as e:
+        st.error(f"❌ Backend Error: {str(e)}") 

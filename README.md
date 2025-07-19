@@ -1,13 +1,13 @@
 # HR Resource Query Chatbot
 
 ## Overview
-The HR Resource Query Chatbot is an intelligent assistant designed to help HR teams quickly find and recommend employees for projects using natural language queries. It leverages modern retrieval-augmented generation (RAG) techniques, semantic search, and (optionally) LLMs to provide relevant, human-like recommendations based on a realistic employee dataset. This project is intended for **local setup and demonstration only**.
+The HR Resource Query Chatbot is an intelligent assistant designed to help HR teams quickly find and recommend employees for projects using natural language queries. It leverages modern retrieval-augmented generation (RAG) techniques, semantic search, and LLMs to provide relevant, human-like recommendations based on a realistic employee dataset.
 
 ## Features
 - Natural language HR resource search via chat interface
 - RAG pipeline: semantic retrieval + augmentation + generation
 - Vector similarity search using FAISS and sentence-transformers
-- Template-based and LLM-based (OpenAI GPT) response generation
+- Template-based and LLM-based (Groq api) response generation
 - REST API with endpoints for chat and employee search
 - Streamlit frontend for interactive chat
 - Realistic, diverse employee dataset (50+ entries)
@@ -18,7 +18,7 @@ The HR Resource Query Chatbot is an intelligent assistant designed to help HR te
 - **Frontend:** Streamlit chat UI
 - **Embeddings:** sentence-transformers (MiniLM)
 - **Vector Search:** FAISS (in-memory)
-- **LLM (optional):** OpenAI GPT-3.5/4 (if API key provided)
+- **LLM (optional):** Groq api that uses llama-3.1-8b-instant model
 - **Data:** JSON file with employee profiles
 
 **System Flow:**
@@ -30,23 +30,27 @@ User ──▶ Streamlit UI ──▶ FastAPI /chat ──▶ RAG Pipeline ─�
 
 ### Prerequisites
 - Python 3.8+
-- (Optional) OpenAI API key for LLM responses
+- groq api
 
+### Setup
+clone the application
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+```
 ### Backend
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-### Frontend
+### Frontend (start fronend in different terminal)
 ```bash
 cd frontend
-python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
 streamlit run app.py
 ```
 

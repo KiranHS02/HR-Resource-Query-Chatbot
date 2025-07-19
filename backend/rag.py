@@ -6,15 +6,29 @@ import numpy as np
 import faiss
 import openai
 from openai import RateLimitError
+import os
+from dotenv import load_dotenv
+import os
+from typing import List
+from groq import Groq
+from groq import RateLimitError
+
+
 
 # Load embedding model (use a small, fast model for demo)
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 model = SentenceTransformer(EMBEDDING_MODEL_NAME)
 
-# Optionally set OpenAI API key for generation
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if OPENAI_API_KEY:
-    openai.api_key = OPENAI_API_KEY
+# Load environment variables from .env file
+load_dotenv()
+
+# # Get the API key from environment variables
+# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+# # Optionally set OpenAI API key for generation
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# if OPENAI_API_KEY:
+#     openai.api_key = OPENAI_API_KEY
 
 # --- Retrieval: Embedding + Vector Search ---
 def build_employee_index(employees: List[Employee]):
@@ -32,36 +46,75 @@ def retrieve_employees(query: str, employees: List[Employee], index, embeddings,
     results = [employees[i] for i in I[0]]
     return results
 
+
+# Initialize Groq client
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+if GROQ_API_KEY:
+    groq_client = Groq(api_key=GROQ_API_KEY)
+
 # --- Generation: LLM or template-based ---
 def generate_response(query: str, matched: List[Employee]) -> str:
-    if OPENAI_API_KEY:
-        print("🔑 Using OpenAI LLM for response generation.")
+    if GROQ_API_KEY:
+        print("🔑 Using Groq LLM for response generation.")
         prompt = (
             f"User query: {query}\n"
             f"Matched employees: {', '.join([e.name for e in matched])}\n"
             f"For each, summarize why they are a good fit."
         )
         try:
-            response = openai.chat.completions.create(
-                model="gpt-3.5-turbo",
+            response = groq_client.chat.completions.create(
+                model="llama-3.1-8b-instant",  # You can also use "llama2-70b-4096" or "gemma-7b-it"
                 messages=[
                     {"role": "system", "content": "You are an HR assistant."},
                     {"role": "user", "content": prompt}
-                ]
+                ],
+                max_tokens=1000,
+                temperature=0.7
             )
-            return response.choices[0].message.content
+            return response.choices[0].message.content or ""
         except RateLimitError as e:
-            print(f"OpenAI RateLimitError: {e}")
-            return ("⚠️ Your OpenAI API quota has been exceeded or rate-limited. "
+            print(f"Groq RateLimitError: {e}")
+            return ("⚠️ Your Groq API quota has been exceeded or rate-limited. "
                     "Switching to template-based response.\n\n" +
                     template_response(query, matched))
         except Exception as e:
-            print(f"OpenAI API Error: {e}")
-            return (f"⚠️ OpenAI API error: {e}\nSwitching to template-based response.\n\n" +
+            print(f"Groq API Error: {e}")
+            return (f"⚠️ Groq API error: {e}\nSwitching to template-based response.\n\n" +
                     template_response(query, matched))
     else:
         print("⚡ Using template-based response.")
         return template_response(query, matched)
+
+# # --- Generation: LLM or template-based ---
+# def generate_response(query: str, matched: List[Employee]) -> str:
+#     if OPENAI_API_KEY:
+#         print("🔑 Using OpenAI LLM for response generation.")
+#         prompt = (
+#             f"User query: {query}\n"
+#             f"Matched employees: {', '.join([e.name for e in matched])}\n"
+#             f"For each, summarize why they are a good fit."
+#         )
+#         try:
+#             response = openai.chat.completions.create(
+#                 model="gpt-3.5-turbo",
+#                 messages=[
+#                     {"role": "system", "content": "You are an HR assistant."},
+#                     {"role": "user", "content": prompt}
+#                 ]
+#             )
+#             return response.choices[0].message.content or ""
+#         except RateLimitError as e:
+#             print(f"OpenAI RateLimitError: {e}")
+#             return ("⚠️ Your OpenAI API quota has been exceeded or rate-limited. "
+#                     "Switching to template-based response.\n\n" +
+#                     template_response(query, matched))
+#         except Exception as e:
+#             print(f"OpenAI API Error: {e}")
+#             return (f"⚠️ OpenAI API error: {e}\nSwitching to template-based response.\n\n" +
+#                     template_response(query, matched))
+#     else:
+#         print("⚡ Using template-based response.")
+#         return template_response(query, matched)
 
 def template_response(query: str, matched: List[Employee]) -> str:
     if not matched:
@@ -86,4 +139,5 @@ class RAGPipeline:
 
     def query(self, user_query: str, top_k: int = 3) -> str:
         matched = retrieve_employees(user_query, self.employees, self.index, self.embeddings, self.texts, top_k=top_k)
+        print(matched)
         return generate_response(user_query, matched) 
