@@ -102,7 +102,7 @@ streamlit run app.py
   - Open source models are cost effective and free to use 
   - Chose sentence-transformers + FAISS for free, fast, local semantic search
 - **Local LLM vs Cloud API:**
-  - Cloud Groq API used
+  - Cloud Groq API used as it is cost effective
 - **Performance vs Cost vs Privacy:**
   - Default is local, no-cost, privacy-friendly
   - LLM is opt-in for richer responses
